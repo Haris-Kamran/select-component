@@ -35,15 +35,15 @@ Download `src/index.js` and include it in your project:
 <script type="module" src="path/to/index.js"></script>
 ```
 
-### Option 2: NPM (Coming Soon)
+### Option 2: NPM
 ```bash
-npm install select-component
+npm install react-select-component
 ```
 
-### Option 3: CDN (Coming Soon)
+### Option 3: CDN
 ```html
 <script type="module">
-  import 'https://cdn.example.com/select-component.js';
+  import 'https://cdn.jsdelivr.net/npm/react-select-component/src/index.js';
 </script>
 ```
 

@@ -1,13 +1,17 @@
 {
-  "name": "select-component",
+  "name": "react-select-component",
   "version": "1.0.0",
   "description": "A lightweight, customizable Web Component for enhanced dropdown/select elements with zero dependencies",
   "main": "src/index.js",
+  "module": "src/index.js",
   "type": "module",
+  "types": "src/index.d.ts",
+  "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "web-component",
     "web-components",
     "custom-elements",
     "select",
@@ -16,7 +20,8 @@
     "input",
     "shadow-dom",
     "vanilla-js",
-    "zero-dependencies"
+    "zero-dependencies",
+    "custom-element"
   ],
   "author": "Haris Kamran <engr.hariskamran@gmail.com>",
   "license": "MIT",
@@ -30,6 +35,7 @@
   "homepage": "https://github.com/Haris-Kamran/select-component#readme",
   "files": [
     "src/index.js",
+    "src/index.d.ts",
     "README.md",
     "LICENSE"
   ],
@@ -42,5 +48,15 @@
     "Firefox >= 63",
     "Safari >= 10.1",
     "Edge >= 79"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "types": "./src/index.d.ts"
+    }
+  }
 }
