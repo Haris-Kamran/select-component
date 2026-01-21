@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Component - Country Test</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .test-section h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background: #5a67d8;
+        }
+        
+        .info-box {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select Component Test</h1>
+        <p class="subtitle">Testing the Web Component with Country Selection</p>
+
+        <div class="info-box">
+            <strong>Component Features:</strong>
+            <ul>
+                <li>Custom label support</li>
+                <li>Disabled state</li>
+                <li>Programmatic value setting</li>
+                <li>Dynamic options loading</li>
+                <li>Custom events (value-change)</li>
+                <li>Shadow DOM encapsulation</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 1: Basic Country Selection</h2>
+            <p>Select a country from the dropdown:</p>
+            
+            <select-component 
+                id="country-select"
+                label="Select Country">
+            </select-component>
+            
+            <div class="result" id="result1">Selected: None</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 2: Pre-selected Value</h2>
+            <p>This select has USA pre-selected:</p>
+            
+            <select-component 
+                id="country-select-preselected"
+                label="Country (Pre-selected)"
+                value="US">
+            </select-component>
+            
+            <div class="result" id="result2">Selected: None</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 3: Disabled State</h2>
+            <p>This select is disabled:</p>
+            
+            <select-component 
+                id="country-select-disabled"
+                label="Country (Disabled)"
+                disabled>
+            </select-component>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 4: Dynamic Options Update</h2>
+            <p>Click the button to load different country sets:</p>
+            
+            <select-component 
+                id="country-select-dynamic"
+                label="Dynamic Country List">
+            </select-component>
+            
+            <button onclick="loadEuropeanCountries()">Load European Countries</button>
+            <button onclick="loadAsianCountries()">Load Asian Countries</button>
+            <button onclick="loadAllCountries()">Load All Countries</button>
+            
+            <div class="result" id="result4">Selected: None</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 5: Programmatic Value Setting</h2>
+            <p>Use buttons to set specific countries:</p>
+            
+            <select-component 
+                id="country-select-programmatic"
+                label="Programmatic Control">
+            </select-component>
+            
+            <button onclick="setCountry('CA')">Set Canada</button>
+            <button onclick="setCountry('JP')">Set Japan</button>
+            <button onclick="setCountry('AU')">Set Australia</button>
+            <button onclick="getCurrentValue()">Get Current Value</button>
+            
+            <div class="result" id="result5">Selected: None</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Implementation Example</h2>
+            <div class="code-example">
+// Initialize with options
+const select = document.querySelector('select-component');
+select.setOptions([
+    { value: 'US', label: 'United States' },
+    { value: 'CA', label: 'Canada' },
+    { value: 'UK', label: 'United Kingdom' }
+]);
+
+// Listen for changes
+select.addEventListener('value-change', (e) => {
+    console.log('Selected:', e.detail.value);
+});
+
+// Set value programmatically
+select.value = 'CA';
+            </div>
+        </div>
+    </div>
+
+    <!-- Import the select component -->
+    <script type="module" src="./src/index.js"></script>
+    
+    <script>
+        // Country data for testing
+        const allCountries = [
+            { value: 'US', label: 'United States' },
+            { value: 'CA', label: 'Canada' },
+            { value: 'UK', label: 'United Kingdom' },
+            { value: 'DE', label: 'Germany' },
+            { value: 'FR', label: 'France' },
+            { value: 'IT', label: 'Italy' },
+            { value: 'ES', label: 'Spain' },
+            { value: 'JP', label: 'Japan' },
+            { value: 'CN', label: 'China' },
+            { value: 'IN', label: 'India' },
+            { value: 'AU', label: 'Australia' },
+            { value: 'BR', label: 'Brazil' },
+            { value: 'MX', label: 'Mexico' },
+            { value: 'RU', label: 'Russia' },
+            { value: 'ZA', label: 'South Africa' },
+            { value: 'EG', label: 'Egypt' },
+            { value: 'NG', label: 'Nigeria' },
+            { value: 'AR', label: 'Argentina' },
+            { value: 'SE', label: 'Sweden' },
+            { value: 'NO', label: 'Norway' },
+            { value: 'FI', label: 'Finland' },
+            { value: 'DK', label: 'Denmark' },
+            { value: 'NL', label: 'Netherlands' },
+            { value: 'BE', label: 'Belgium' },
+            { value: 'CH', label: 'Switzerland' },
+            { value: 'AT', label: 'Austria' },
+            { value: 'PT', label: 'Portugal' },
+            { value: 'GR', label: 'Greece' },
+            { value: 'PL', label: 'Poland' },
+            { value: 'TR', label: 'Turkey' },
+            { value: 'SA', label: 'Saudi Arabia' },
+            { value: 'AE', label: 'United Arab Emirates' },
+            { value: 'KR', label: 'South Korea' },
+            { value: 'TH', label: 'Thailand' },
+            { value: 'SG', label: 'Singapore' },
+            { value: 'MY', label: 'Malaysia' },
+            { value: 'ID', label: 'Indonesia' },
+            { value: 'PH', label: 'Philippines' },
+            { value: 'VN', label: 'Vietnam' },
+            { value: 'NZ', label: 'New Zealand' }
+        ];
+
+        const europeanCountries = [
+            { value: 'DE', label: 'Germany' },
+            { value: 'FR', label: 'France' },
+            { value: 'IT', label: 'Italy' },
+            { value: 'ES', label: 'Spain' },
+            { value: 'SE', label: 'Sweden' },
+            { value: 'NO', label: 'Norway' },
+            { value: 'FI', label: 'Finland' },
+            { value: 'DK', label: 'Denmark' },
+            { value: 'NL', label: 'Netherlands' },
+            { value: 'BE', label: 'Belgium' },
+            { value: 'CH', label: 'Switzerland' },
+            { value: 'AT', label: 'Austria' },
+            { value: 'PT', label: 'Portugal' },
+            { value: 'GR', label: 'Greece' },
+            { value: 'PL', label: 'Poland' },
+            { value: 'TR', label: 'Turkey' },
+            { value: 'UK', label: 'United Kingdom' }
+        ];
+
+        const asianCountries = [
+            { value: 'CN', label: 'China' },
+            { value: 'IN', label: 'India' },
+            { value: 'JP', label: 'Japan' },
+            { value: 'KR', label: 'South Korea' },
+            { value: 'TH', label: 'Thailand' },
+            { value: 'SG', label: 'Singapore' },
+            { value: 'MY', label: 'Malaysia' },
+            { value: 'ID', label: 'Indonesia' },
+            { value: 'PH', label: 'Philippines' },
+            { value: 'VN', label: 'Vietnam' },
+            { value: 'TR', label: 'Turkey' },
+            { value: 'SA', label: 'Saudi Arabia' },
+            { value: 'AE', label: 'United Arab Emirates' }
+        ];
+
+        // Wait for the component to be defined
+        customElements.whenDefined('select-component').then(() => {
+            // Initialize all select components with country data
+            
+            // Test 1: Basic selection
+            const select1 = document.getElementById('country-select');
+            select1.setOptions(allCountries);
+            select1.addEventListener('value-change', (e) => {
+                document.getElementById('result1').textContent = `Selected: ${e.detail.value}`;
+            });
+
+            // Test 2: Pre-selected value
+            const select2 = document.getElementById('country-select-preselected');
+            select2.setOptions(allCountries);
+            select2.addEventListener('value-change', (e) => {
+                document.getElementById('result2').textContent = `Selected: ${e.detail.value}`;
+            });
+
+            // Test 3: Disabled (just initialize)
+            const select3 = document.getElementById('country-select-disabled');
+            select3.setOptions(allCountries);
+
+            // Test 4: Dynamic updates
+            const select4 = document.getElementById('country-select-dynamic');
+            select4.setOptions(allCountries);
+            select4.addEventListener('value-change', (e) => {
+                document.getElementById('result4').textContent = `Selected: ${e.detail.value}`;
+            });
+
+            // Test 5: Programmatic control
+            const select5 = document.getElementById('country-select-programmatic');
+            select5.setOptions(allCountries);
+            select5.addEventListener('value-change', (e) => {
+                document.getElementById('result5').textContent = `Selected: ${e.detail.value}`;
+            });
+
+            // Make functions globally available for button clicks
+            window.loadEuropeanCountries = function() {
+                select4.setOptions(europeanCountries);
+                document.getElementById('result4').textContent = 'Loaded European countries';
+            };
+
+            window.loadAsianCountries = function() {
+                select4.setOptions(asianCountries);
+                document.getElementById('result4').textContent = 'Loaded Asian countries';
+            };
+
+            window.loadAllCountries = function() {
+                select4.setOptions(allCountries);
+                document.getElementById('result4').textContent = 'Loaded all countries';
+            };
+
+            window.setCountry = function(countryCode) {
+                select5.value = countryCode;
+                const country = allCountries.find(c => c.value === countryCode);
+                document.getElementById('result5').textContent = `Set to: ${country ? country.label : countryCode}`;
+            };
+
+            window.getCurrentValue = function() {
+                const value = select5.value;
+                const country = allCountries.find(c => c.value === value);
+                document.getElementById('result5').textContent = `Current: ${country ? country.label : value} (${value})`;
+            };
+        });
+
+        // Log when the page loads
+        console.log('Select Component Test Page Loaded');
+        console.log('Available components:', customElements.get('select-component'));
+    </script>
+</body>
+</html>

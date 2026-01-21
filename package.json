@@ -1,0 +1,46 @@
+{
+  "name": "select-component",
+  "version": "1.0.0",
+  "description": "A lightweight, customizable Web Component for enhanced dropdown/select elements with zero dependencies",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "select",
+    "dropdown",
+    "form",
+    "input",
+    "shadow-dom",
+    "vanilla-js",
+    "zero-dependencies"
+  ],
+  "author": "Haris Kamran <engr.hariskamran@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Haris-Kamran/select-component.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Haris-Kamran/select-component/issues"
+  },
+  "homepage": "https://github.com/Haris-Kamran/select-component#readme",
+  "files": [
+    "src/index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "browser": "src/index.js",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "Chrome >= 54",
+    "Firefox >= 63",
+    "Safari >= 10.1",
+    "Edge >= 79"
+  ]
+}
