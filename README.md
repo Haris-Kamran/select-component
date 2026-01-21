@@ -37,13 +37,13 @@ Download `src/index.js` and include it in your project:
 
 ### Option 2: NPM
 ```bash
-npm install react-select-component
+npm install @devzenix-ui/react-select
 ```
 
 ### Option 3: CDN
 ```html
 <script type="module">
-  import 'https://cdn.jsdelivr.net/npm/react-select-component/src/index.js';
+  import 'https://cdn.jsdelivr.net/npm/@devzenix-ui/react-select/src/index.js';
 </script>
 ```
 

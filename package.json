@@ -1,5 +1,5 @@
 {
-  "name": "react-select-component",
+  "name": "@devzenix-ui/react-select",
   "version": "1.0.0",
   "description": "A lightweight, customizable Web Component for enhanced dropdown/select elements with zero dependencies",
   "main": "src/index.js",

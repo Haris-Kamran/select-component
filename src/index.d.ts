@@ -1,5 +1,5 @@
 /**
- * Type definitions for react-select-component
+ * Type definitions for @devzenix-ui/react-select
  * A lightweight, customizable Web Component for enhanced dropdown/select elements
  */
 
